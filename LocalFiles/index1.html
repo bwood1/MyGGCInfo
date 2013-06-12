@@ -18,22 +18,21 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script type="text/javascript">
-	var windowWidth = 0;
-	var windowHeight = 0;
+	var screenWidth = 0;
 
 	$(document).ready(function() {
 		setScreenWidth();
 	});
 
 	function setScreenWidth() {
-		windowWidth = window.innerWidth;
-		windowHeight = window.innerHeight;
-		console.log("The screen width is: " + windowWidth);
-		document.getElementById("screen").setAttribute('width', windowWidth);
+		screenWidth = screen.width;
+		screenHeight = screen.height;
+		console.log("The screen width is: " + screenWidth);
+		document.getElementById("screen").setAttribute('width', screenWidth);
 		document.getElementById("iconWrapper").setAttribute('width',
-				windowWidth);
+				screenWidth);
 		document.getElementById("iconWrapper").setAttribute('height',
-				windowHeight);
+				screenHeight);
 		debugger;
 	}
 
@@ -79,69 +78,66 @@
 		<!-- Content for the home screen -->
 		<div id="homeContent">
 			<!-- Back Button -->
-			<div
-				style="text-align: center; width: 75px; height: 20px; float: left; padding: 5%"
-				id="backDiv">
-				<img width="75" height="25" src="images/icons.png" alt="backButton">
-				<figcaption>Back</figcaption>
+			<div style="text-align: center; width: 75px; height: 20px; float: left; padding: 2%" id="backDiv">
+				<img width="75" height="25"
+					src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+					alt="backButton">
+					<figcaption>Back</figcaption>
 			</div>
 			<!-- LoginButton -->
-			<div
-				style="text-align: center; width: 75px; height: 20px; float: right; padding: 5%"
-				id="loginDiv">
-				<img width="75" height="25" src="images/icons.png" alt="loginButton">Login</img>
+			<div style="text-align: center; width: 75px; height: 20px; float: right; padding: 2%" id="loginDiv">
+				<img width="75" height="25"
+					src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+					alt="loginButton">Login</img>
 			</div>
 			<!-- /LoginButton -->
 			<br> <br> <br> <br>
-			<div id="iconWrapper" style="margin: 0px auto">
+			<div id="iconWrapper">
 				<!-- Icons -->
-				<div id="icons" style="margin: 0px auto">
+				<div id="icons" style="margin-Left: auto; margin-Right: auto">
 					<!-- First Row of Icons -->
-					<div class="iconRow">
-						<!-- mySchedule Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showMySchedule();"
-								src="images/icons.png" alt="scheduleIcon">
+					<!-- mySchedule Button -->
+					<div style="text-align:center; float:left">
+						<img width="75" height="75" onclick="showMySchedule();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="scheduleIcon">
 							<figcaption>mySchedule</figcaption>
-						</div>
-						<!-- myMentor Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showMyMentor();"
-								src="images/icons.png" alt="mentorIcon">
-							<figcaption>myMentor</figcaption>
-						</div>
 					</div>
+					<!-- myMentor Button -->
+					<div>
+						<img width="75" height="75" onclick="showMyMentor();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="mentorIcon">
+							<figcaption>myMentor</figcaption>
+					</div>
+
 					<!-- Second Row of Icons -->
-					<div class="iconRow">
-						<!-- GGC Map Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showMap();"
-								src="images/icons.png" alt="campusMapIcon">
-							<figcaption>Campus<br>Map</figcaption>
-						</div>
-						<!-- What's Happening Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showWhatsHappening();"
-								src="images/icons.png" alt="whatsHappeningIcon">
-							<figcaption>What's<br>Happening</figcaption>
-						</div>
+					<!-- GGC Map Button -->
+					<div>
+						<img width="75" height="75" onclick="showMap();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="campusMapIcon">Campus Map</img>
+					</div>
+					<!-- What's Happening Button -->
+					<div>
+						<img width="75" height="75" onclick="showWhatsHappening();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="whatsHappeningIcon">What's Happening</img>
 					</div>
 					<!-- /SecondRowIcons -->
 
 					<!-- Third Row of Icons -->
-					<div style="padding-top:10%; padding-left: 15%; padding-right: 15%">
-						<!-- Directory Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showDirectory();"
-								src="images/icons.png" alt="directoryIcon">
-							<figcaption>Directory</figcaption>
-						</div>
-						<!-- GGC Apps Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showApps();"
-								src="images/icons.png" alt="ggcAppsIcon">
-							<figcaption>GGC Apps</figcaption>
-						</div>
+					<!-- Directory Button -->
+					<div>
+						<img width="75" height="75" onclick="showDirectory();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="directoryIcon">Directory</img>
+					</div>
+					<!-- GGC Apps Button -->
+					<div>
+						<img width="75" height="75" onclick="showApps();"
+							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
+							alt="ggcAppsIcon">GGC Apps</img>
 					</div>
 					<!-- /ThirdRowIcons -->
 				</div>
@@ -171,14 +167,15 @@
 </body>
 
 <script>
-	function showHome() {
-		hideAll();
-		$("#homeContent").html("Loading...");
-		$.get("index.html", function(data) {
-			$("#homeContent").html(data)
-		});
-		$("#homeContent").fadeIn("fast");
-	}
+
+function showHome() {
+	hideAll();
+	$("#homeContent").html("Loading...");
+	$.get("index.html", function(data) {
+		$("#homeContent").html(data)
+	});
+	$("#homeContent").fadeIn("fast");
+}
 
 	/**
 	 *First hides everything on screen then shows the my schedule screen
@@ -203,7 +200,7 @@
 		});
 		$("#mentorContent").fadeIn("fast");
 	}
-
+	
 	/**
 	 *First hides everything on screen then shows the map screen
 	 */
@@ -215,7 +212,7 @@
 		});
 		$("#mapContent").fadeIn("fast");
 	}
-
+	
 	/**
 	 *First hides everything on screen then shows the what's happening screen
 	 */
@@ -227,7 +224,7 @@
 		});
 		$("#whatsHappeningContent").fadeIn("fast");
 	}
-
+	
 	/**
 	 *First hides everything on screen then shows the directory screen
 	 */
@@ -239,7 +236,7 @@
 		});
 		$("#directoryContent").fadeIn("fast");
 	}
-
+	
 	/**
 	 *First hides everything on screen then shows the ggc apps screen
 	 */
