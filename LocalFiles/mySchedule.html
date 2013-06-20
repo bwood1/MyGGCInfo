@@ -7,17 +7,122 @@
 <link rel="stylesheet" href="style.css" type="text/css" media="screen"
 	title="no title" charset="utf-8">
 <script type="text/javascript" charset="utf-8" src="js/wormhole.js"></script>
+<script>
+	var classOne = "";
+	var classTwo = "";
+	var classThree = "";
+	var classFour = "";
+	var classFive = "";
+	var classSix = "";
+
+	/**
+	 *	Checks to see if the students schedule is saved to the device and is updated
+	 */
+	function checkScheduleInfo() {
+		//TODO check to see if the student's schedule is saved on the device 
+		//TODO check to see if the student's schedule is current 
+	}
+
+	/**
+	 *	Will retrieve the students schedule from the server and store it in variables
+	 */
+	function retreiveScheduleInfo() {
+		//TODO write a script that will request the student's schedule from the server 
+	}
+
+	/**
+	 *	Will save the student's schedule to local storage
+	 */
+	function saveScheduleInfo() {
+		//TODO write a script to save the schedule on the device 
+	}
+
+	/**
+	 *	Will get the student's schedule from the device and store it in variables
+	 */
+	function getScheduleInfo() {
+		//TODO write a script to get the student's schedule from local storage 
+	}
+
+	/**
+	 *	Will show the student's schedule on screen
+	 */
+	function showScheduleInfo() {
+		//TODO write a script to update the class fields with the information retreived 
+	}
+
+	// Go back to the GGC Apps screen when the back key is pressed.
+	document.addEventListener("backbutton", function() {
+		window.history.back();
+	}, true);
+</script>
 </head>
 <body>
-	<!-- Back Button -->
-	<div style="text-align: center; width: 75px; height: 20px; float: left"
-		id="backDiv">
-		<img width="75" height="25" onclick="showHome();"
-			src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-			alt="backButton">
-			<figcaption>Back</figcaption>
-	</div>
-	<div>This is my schedule</div>
+	<div id="screen">
+		<!-- Banner -->
+		<!-- Top content -->
+		<div style="padding: 5% 5% 10% 5%">
+			<!-- placeholder -->
+			<div id="topPlaceholder"></div>
+			<!-- LoginButton -->
+			<div id="backDiv">
+				<img width="100%" height="100%"
+					onclick="document.location='index.html'" src="images/icons.png"
+					alt="backButton">
+				<figcaption>Back</figcaption>
+			</div>
+			<!-- /LoginButton -->
+			<!-- myGGC Banner -->
+			<div id="bannerDiv">
+				<img alt="bannerImage" src="images/icons.png" width="100%"
+					height="100%">
+			</div>
+		</div>
+		<!-- /TopContent -->
 
+		<br>
+
+		<!-- scheduleContent -->
+		<div id="scheduleContent"
+			style="padding: 7% 10% 7% 10%; height: 100%; border: 1px solid blue">
+			<div id="monday" style="border: 1px solid green">
+				<div id="mondayLabel" style="padding-right: 20%">Monday</div>
+				<div id="mondayClasses">
+					<div id="mondayClassOne" style="display:inline-block">Class one</div>
+					<span></span>
+					<div id="mondayClassOneTime" style="display:inline-block">1300</div>
+				</div>
+			</div>
+			<!-- <ul class="scheduleList">
+				<li class="scheduleDay" type="none">Monday</li>
+				<ul>
+					<li class="scheduleClass" type="none">Class 1</li>
+					<li class="scheduleClass" type="none">Class 2</li>
+				</ul>
+				<li class="scheduleDay" type="none">Tuesday</li>
+				<ul>
+					<li class="scheduleClass" type="none">Class 3</li>
+					<li class="scheduleClass" type="none">Class 4</li>
+				</ul>
+				<li class="scheduleDay" type="none">Wedensday</li>
+				<ul>
+					<li class="scheduleClass" type="none">Class 1</li>
+					<li class="scheduleClass" type="none">Class 2</li>
+				</ul>
+				<li class="scheduleDay" type="none">Thursday</li>
+				<ul>
+					<li class="scheduleClass" type="none">Class 3</li>
+					<li class="scheduleClass" type="none">Class 4</li>
+				</ul>
+				<li class="scheduleDay" type="none">Friday</li>
+				<ul>
+					<li class="scheduleClass" type="none">Class 1</li>
+					<li class="scheduleClass" type="none">Class 2</li>
+				</ul>
+			</ul> -->
+		</div>
+		<!-- /scheduleContent -->
+	</div>
+	<!-- /screen -->
 </body>
 </html>

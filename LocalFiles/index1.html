@@ -18,22 +18,22 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script type="text/javascript">
-	var screenWidth = 0;
+	var windowWidth = 0;
+	var windowHeight = 0;
 
 	$(document).ready(function() {
 		setScreenWidth();
 	});
 
 	function setScreenWidth() {
-		screenWidth = screen.width;
-		screenHeight = screen.height;
-		console.log("The screen width is: " + screenWidth);
-		document.getElementById("screen").setAttribute('width', screenWidth);
+		windowWidth = window.innerWidth;
+		windowHeight = window.innerHeight;
+		console.log("The screen width is: " + windowWidth);
+		document.getElementById("screen").setAttribute('width', windowWidth);
 		document.getElementById("iconWrapper").setAttribute('width',
-				screenWidth);
+				windowWidth);
 		document.getElementById("iconWrapper").setAttribute('height',
-				screenHeight);
-		debugger;
+				windowHeight);
 	}
 
 	/**
@@ -48,17 +48,6 @@
 	 */
 	function beep() {
 		navigator.notification.beep(1);
-	}
-
-	/**
-	 * Change page background to a random color.
-	 */
-	function changeColor() {
-		var color = "#"
-				+ (Math.random() * 0xFFFFFF + 0x1000000).toString(16).substr(1,
-						6);
-		document.documentElement.style.backgroundColor = color;
-		document.body.style.backgroundColor = color;
 	}
 
 	// Register event listeners.
@@ -77,186 +66,90 @@
 	<div id="screen">
 		<!-- Content for the home screen -->
 		<div id="homeContent">
-			<!-- Back Button -->
-			<div style="text-align: center; width: 75px; height: 20px; float: left; padding: 2%" id="backDiv">
-				<img width="75" height="25"
-					src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-					alt="backButton">
-					<figcaption>Back</figcaption>
+			<!-- Top content -->
+			<div style="padding: 5% 5% 10% 5%; border: 1px solid; border-color: white">
+				<!-- placeholder -->
+				<div id="topPlaceholder">
+				</div>
+				<!-- myGGC Banner -->
+				<div style="border:1px solid blue; float:left; height:5%; width:25%">
+					<img alt="bannerImage" src="images/icons.png" width="100%"
+						height="100%">
+				</div>
+				<!-- LoginButton -->
+				<div id="loginDiv">
+					<img width="100%" height="100%" src="images/icons.png"
+						alt="loginButton">
+						<figcaption>Login</figcaption>
+				</div>
+				<!-- /LoginButton -->
 			</div>
-			<!-- LoginButton -->
-			<div style="text-align: center; width: 75px; height: 20px; float: right; padding: 2%" id="loginDiv">
-				<img width="75" height="25"
-					src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-					alt="loginButton">Login</img>
-			</div>
-			<!-- /LoginButton -->
-			<br> <br> <br> <br>
-			<div id="iconWrapper">
-				<!-- Icons -->
-				<div id="icons" style="margin-Left: auto; margin-Right: auto">
+			<!-- Icons -->
+			<div id="iconWrapper" style="margin: 0px auto">
+				<div id="icons" style="margin: 0px auto">
 					<!-- First Row of Icons -->
-					<!-- mySchedule Button -->
-					<div style="text-align:center; float:left">
-						<img width="75" height="75" onclick="showMySchedule();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="scheduleIcon">
+					<div class="iconRow">
+						<!-- mySchedule Button -->
+						<div style="float: left; width:30%; height: 100%">
+							<img class="icon" onclick="document.location='mySchedule.html'"
+								src="images/icons.png" alt="scheduleIcon">
 							<figcaption>mySchedule</figcaption>
-					</div>
-					<!-- myMentor Button -->
-					<div>
-						<img width="75" height="75" onclick="showMyMentor();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="mentorIcon">
+						</div>
+						<!-- myMentor Button -->
+						<div style="float: right; width:30%; height: 100%">
+							<img class="icon" onclick="document.location='myMentor.html'"
+								src="images/icons.png" alt="mentorIcon">
 							<figcaption>myMentor</figcaption>
+						</div>
 					</div>
-
 					<!-- Second Row of Icons -->
-					<!-- GGC Map Button -->
-					<div>
-						<img width="75" height="75" onclick="showMap();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="campusMapIcon">Campus Map</img>
-					</div>
-					<!-- What's Happening Button -->
-					<div>
-						<img width="75" height="75" onclick="showWhatsHappening();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="whatsHappeningIcon">What's Happening</img>
+					<div class="iconRow">
+						<!-- GGC Map Button -->
+						<div style="float: left; width:30%; height: 100%">
+							<img class="icon" onclick="document.location='map.html'"
+								src="images/icons.png" alt="campusMapIcon">
+							<figcaption>
+								Campus<br>Map
+							</figcaption>
+						</div>
+						<!-- What's Happening Button -->
+						<div style="float: right; width:30%; height: 100%">
+							<img class="icon"
+								onclick="document.location='whatsHappening.html'"
+								src="images/icons.png" alt="whatsHappeningIcon">
+							<figcaption>
+								What's<br>Happening
+							</figcaption>
+						</div>
 					</div>
 					<!-- /SecondRowIcons -->
 
 					<!-- Third Row of Icons -->
-					<!-- Directory Button -->
-					<div>
-						<img width="75" height="75" onclick="showDirectory();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="directoryIcon">Directory</img>
-					</div>
-					<!-- GGC Apps Button -->
-					<div>
-						<img width="75" height="75" onclick="showApps();"
-							src="/Users/brandonwood/workspace/webuitest/LocalFiles/images/icons.png"
-							alt="ggcAppsIcon">GGC Apps</img>
+					<div class="iconRow" style="padding-top: 12%"> <!-- Needs some extra space because of the two line text above -->
+						<!-- Directory Button -->
+						<div style="float: left; width:30%; height: 100%">
+							<img class="icon" onclick="document.location='directory.html'"
+								src="images/icons.png" alt="directoryIcon">
+							<figcaption>Directory</figcaption>
+						</div>
+						<!-- GGC Apps Button -->
+						<div style="float: right; width:30%; height: 100%">
+							<img class="icon" onclick="document.location='ggcApps.html'"
+								src="images/icons.png" alt="ggcAppsIcon">
+							<figcaption>GGC Apps</figcaption>
+						</div>
 					</div>
 					<!-- /ThirdRowIcons -->
 				</div>
-				<!-- /Icons -->
 			</div>
+			<!-- /Icons -->
 		</div>
-		<!-- End home screen -->
-
-		<!-- Content for the schedule -->
-		<div id="scheduleContent">&nbsp;</div>
-
-		<!-- Content for the mentor -->
-		<div id="mentorContent">&nbsp;</div>
-
-		<!-- Content for the campus map -->
-		<div id="mapContent">&nbsp;</div>
-
-		<!-- Content for whats happening screen -->
-		<div id="whatsHappeningContent">&nbsp;</div>
-
-		<!-- Content for the directory -->
-		<div id="directoryContent">&nbsp;</div>
-
-		<!-- Content for GGC Apps -->
-		<div id="ggcAppsContent">&nbsp;</div>
+		<!-- End home content -->
 	</div>
+	<!-- Ticker -->
+	<div id="tickerDiv">
+		<img src="images/icons.png" width="100%" height="100%">
+	</div>
+
 </body>
-
-<script>
-
-function showHome() {
-	hideAll();
-	$("#homeContent").html("Loading...");
-	$.get("index.html", function(data) {
-		$("#homeContent").html(data)
-	});
-	$("#homeContent").fadeIn("fast");
-}
-
-	/**
-	 *First hides everything on screen then shows the my schedule screen
-	 */
-	function showMySchedule() {
-		hideAll();
-		$("#scheduleContent").html("Loading...");
-		$.get("mySchedule.html", function(data) {
-			$("#scheduleContent").html(data)
-		});
-		$("#scheduleContent").fadeIn("fast");
-	}
-
-	/**
-	 * First hides everything on the screen then shows the my mentor screen
-	 */
-	function showMyMentor() {
-		hideAll();
-		$("#mentorContent").html("Loading...");
-		$.get("myMentor.html", function(data) {
-			$("#mentorContent").html(data)
-		});
-		$("#mentorContent").fadeIn("fast");
-	}
-	
-	/**
-	 *First hides everything on screen then shows the map screen
-	 */
-	function showMap() {
-		hideAll();
-		$("#mapContent").html("Loading...");
-		$.get("map.html", function(data) {
-			$("#mapContent").html(data)
-		});
-		$("#mapContent").fadeIn("fast");
-	}
-	
-	/**
-	 *First hides everything on screen then shows the what's happening screen
-	 */
-	function showWhatsHappening() {
-		hideAll();
-		$("#whatsHappeningContent").html("Loading...");
-		$.get("whatsHappening.html", function(data) {
-			$("#whatsHappeningContent").html(data)
-		});
-		$("#whatsHappeningContent").fadeIn("fast");
-	}
-	
-	/**
-	 *First hides everything on screen then shows the directory screen
-	 */
-	function showDirectory() {
-		hideAll();
-		$("#directoryContent").html("Loading...");
-		$.get("directory.html", function(data) {
-			$("#directoryContent").html(data)
-		});
-		$("#directoryContent").fadeIn("fast");
-	}
-	
-	/**
-	 *First hides everything on screen then shows the ggc apps screen
-	 */
-	function showApps() {
-		hideAll();
-		$("#ggcAppsContent").html("Loading...");
-		$.get("ggcApps.html", function(data) {
-			$("#ggcAppsContent").html(data)
-		});
-		$("#ggcAppsContent").fadeIn("fast");
-	}
-
-	function hideAll() {
-		$("#homeContent").hide();
-		$("#scheduleContent").hide();
-		$("#mentorContent").hide();
-		$("#mapContent").hide();
-		$("#whatsHappeningContent").hide();
-		$("#directoryContent").hide();
-		$("#ggcAppsContent").hide();
-	}
-</script>
 </html>

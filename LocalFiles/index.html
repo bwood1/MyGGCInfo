@@ -7,7 +7,7 @@
 -->
 <html>
 <head>
-<meta name="viewport" content="width=720, user-scalable=no">
+<meta name="viewport" content="user-scalable=no">
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <title>myGGC Info</title>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen"
@@ -34,7 +34,7 @@
 				windowWidth);
 		document.getElementById("iconWrapper").setAttribute('height',
 				windowHeight);
-		debugger;
+		debuger;
 	}
 
 	/**
@@ -51,17 +51,6 @@
 		navigator.notification.beep(1);
 	}
 
-	/**
-	 * Change page background to a random color.
-	 */
-	function changeColor() {
-		var color = "#"
-				+ (Math.random() * 0xFFFFFF + 0x1000000).toString(16).substr(1,
-						6);
-		document.documentElement.style.backgroundColor = color;
-		document.body.style.backgroundColor = color;
-	}
-
 	// Register event listeners.
 
 	// The "deviceready" event is sent when the system
@@ -69,197 +58,96 @@
 	document.addEventListener("deviceready", setScreenWidth, true);
 
 	// Close the application when the back key is pressed.
-	document.addEventListener("backbutton", function() {
-		mosync.app.exit();
-	}, true);
+	document.addEventListener(
+		"backbutton",
+		function() { mosync.app.exit(); },
+		true);
 </script>
 </head>
 <body>
 	<div id="screen">
-		<!-- Content for the home screen -->
-		<div id="homeContent">
-			<!-- Back Button -->
-			<div
-				style="text-align: center; width: 75px; height: 20px; float: left; padding: 5%"
-				id="backDiv">
-				<img width="75" height="25" src="images/icons.png" alt="backButton">
-				<figcaption>Back</figcaption>
-			</div>
+		<!-- Top content -->
+		<div style="padding: 5% 5% 10% 5%">
 			<!-- LoginButton -->
-			<div
-				style="text-align: center; width: 75px; height: 20px; float: right; padding: 5%"
-				id="loginDiv">
-				<img width="75" height="25" src="images/icons.png" alt="loginButton">Login</img>
+			<div id="loginDiv">
+				<img width="100%" height="100%" src="images/logInButton.png"
+					alt="loginButton">
+				<figcaption>Login</figcaption>
 			</div>
 			<!-- /LoginButton -->
-			<br> <br> <br> <br>
-			<div id="iconWrapper" style="margin: 0px auto">
-				<!-- Icons -->
-				<div id="icons" style="margin: 0px auto">
-					<!-- First Row of Icons -->
-					<div class="iconRow">
-						<!-- mySchedule Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showMySchedule();"
-								src="images/icons.png" alt="scheduleIcon">
-							<figcaption>mySchedule</figcaption>
-						</div>
-						<!-- myMentor Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showMyMentor();"
-								src="images/icons.png" alt="mentorIcon">
-							<figcaption>myMentor</figcaption>
-						</div>
-					</div>
-					<!-- Second Row of Icons -->
-					<div class="iconRow">
-						<!-- GGC Map Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showMap();"
-								src="images/icons.png" alt="campusMapIcon">
-							<figcaption>Campus<br>Map</figcaption>
-						</div>
-						<!-- What's Happening Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showWhatsHappening();"
-								src="images/icons.png" alt="whatsHappeningIcon">
-							<figcaption>What's<br>Happening</figcaption>
-						</div>
-					</div>
-					<!-- /SecondRowIcons -->
-
-					<!-- Third Row of Icons -->
-					<div style="padding-top:10%; padding-left: 15%; padding-right: 15%">
-						<!-- Directory Button -->
-						<div style="float: left">
-							<img width="75" height="75" onclick="showDirectory();"
-								src="images/icons.png" alt="directoryIcon">
-							<figcaption>Directory</figcaption>
-						</div>
-						<!-- GGC Apps Button -->
-						<div style="float: right">
-							<img width="75" height="75" onclick="showApps();"
-								src="images/icons.png" alt="ggcAppsIcon">
-							<figcaption>GGC Apps</figcaption>
-						</div>
-					</div>
-					<!-- /ThirdRowIcons -->
-				</div>
-				<!-- /Icons -->
+			<!-- myGGC Banner -->
+			<div id="bannerDivHome">
+				<img alt="bannerImage" src="images/bannerImage.png" width="100%"
+					height="100%">
 			</div>
 		</div>
-		<!-- End home screen -->
+		<!-- Top Content -->
+		
+		<!-- Icons -->
+		<div id="iconWrapper" style="margin: 0px auto">
+			<div id="icons" style="margin: 0px auto">
+				<!-- First Row of Icons -->
+				<div class="iconRow">
+					<!-- mySchedule Button -->
+					<div style="float: left">
+						<img class="icon" onclick="document.location='mySchedule.html'"
+							src="images/homeIcons/myScheduleIcon.png" alt="scheduleIcon">
+						<figcaption>mySchedule</figcaption>
+					</div>
+					<!-- myMentor Button -->
+					<div style="float: right">
+						<img class="icon" onclick="document.location='myMentor.html'"
+							src="images/homeIcons/myMentorIcon.png" alt="mentorIcon">
+						<figcaption>myMentor</figcaption>
+					</div>
+				</div>
+				<!-- Second Row of Icons -->
+				<div class="iconRow">
+					<!-- Campus Map Button -->
+					<div style="float: left">
+						<img class="icon" onclick="document.location='map.html'"
+							src="images/homeIcons/campusMapIcon.png" alt="campusMapIcon">
+						<figcaption>
+							Campus<br>Map
+						</figcaption>
+					</div>
+					<!-- What's Happening Button -->
+					<div style="float: right">
+						<img class="icon"
+							onclick="document.location='whatsHappening.html'"
+							src="images/homeIcons/whatsHappeningIcon.png" alt="whatsHappeningIcon">
+						<figcaption>
+							What's<br>Happening
+						</figcaption>
+					</div>
+				</div>
+				<!-- /SecondRowIcons -->
 
-		<!-- Content for the schedule -->
-		<div id="scheduleContent">&nbsp;</div>
-
-		<!-- Content for the mentor -->
-		<div id="mentorContent">&nbsp;</div>
-
-		<!-- Content for the campus map -->
-		<div id="mapContent">&nbsp;</div>
-
-		<!-- Content for whats happening screen -->
-		<div id="whatsHappeningContent">&nbsp;</div>
-
-		<!-- Content for the directory -->
-		<div id="directoryContent">&nbsp;</div>
-
-		<!-- Content for GGC Apps -->
-		<div id="ggcAppsContent">&nbsp;</div>
+				<!-- Third Row of Icons -->
+				<div class="iconRow" style="padding-top: 12%">
+					<!-- Needs some extra space because of the two line text above -->
+					<!-- Directory Button -->
+					<div style="float: left">
+						<img class="icon" onclick="document.location='directory.html'"
+							src="images/homeIcons/directoryIcon.png" alt="directoryIcon">
+						<figcaption>Directory</figcaption>
+					</div>
+					<!-- GGC Apps Button -->
+					<div style="float: right">
+						<img class="icon" onclick="document.location='ggcApps.html'"
+							src="images/homeIcons/ggcAppsIcon.png" alt="ggcAppsIcon">
+						<figcaption>GGC Apps</figcaption>
+					</div>
+				</div>
+				<!-- /ThirdRowIcons -->
+			</div>
+		</div>
+		<!-- /Icons -->
 	</div>
+	<!-- Ticker -->
+	<div id="tickerDiv">
+		<img src="images/icons.png" width="100%" height="100%">
+	</div>
+
 </body>
-
-<script>
-	function showHome() {
-		hideAll();
-		$("#homeContent").html("Loading...");
-		$.get("index.html", function(data) {
-			$("#homeContent").html(data)
-		});
-		$("#homeContent").fadeIn("fast");
-	}
-
-	/**
-	 *First hides everything on screen then shows the my schedule screen
-	 */
-	function showMySchedule() {
-		hideAll();
-		$("#scheduleContent").html("Loading...");
-		$.get("mySchedule.html", function(data) {
-			$("#scheduleContent").html(data)
-		});
-		$("#scheduleContent").fadeIn("fast");
-	}
-
-	/**
-	 * First hides everything on the screen then shows the my mentor screen
-	 */
-	function showMyMentor() {
-		hideAll();
-		$("#mentorContent").html("Loading...");
-		$.get("myMentor.html", function(data) {
-			$("#mentorContent").html(data)
-		});
-		$("#mentorContent").fadeIn("fast");
-	}
-
-	/**
-	 *First hides everything on screen then shows the map screen
-	 */
-	function showMap() {
-		hideAll();
-		$("#mapContent").html("Loading...");
-		$.get("map.html", function(data) {
-			$("#mapContent").html(data)
-		});
-		$("#mapContent").fadeIn("fast");
-	}
-
-	/**
-	 *First hides everything on screen then shows the what's happening screen
-	 */
-	function showWhatsHappening() {
-		hideAll();
-		$("#whatsHappeningContent").html("Loading...");
-		$.get("whatsHappening.html", function(data) {
-			$("#whatsHappeningContent").html(data)
-		});
-		$("#whatsHappeningContent").fadeIn("fast");
-	}
-
-	/**
-	 *First hides everything on screen then shows the directory screen
-	 */
-	function showDirectory() {
-		hideAll();
-		$("#directoryContent").html("Loading...");
-		$.get("directory.html", function(data) {
-			$("#directoryContent").html(data)
-		});
-		$("#directoryContent").fadeIn("fast");
-	}
-
-	/**
-	 *First hides everything on screen then shows the ggc apps screen
-	 */
-	function showApps() {
-		hideAll();
-		$("#ggcAppsContent").html("Loading...");
-		$.get("ggcApps.html", function(data) {
-			$("#ggcAppsContent").html(data)
-		});
-		$("#ggcAppsContent").fadeIn("fast");
-	}
-
-	function hideAll() {
-		$("#homeContent").hide();
-		$("#scheduleContent").hide();
-		$("#mentorContent").hide();
-		$("#mapContent").hide();
-		$("#whatsHappeningContent").hide();
-		$("#directoryContent").hide();
-		$("#ggcAppsContent").hide();
-	}
-</script>
 </html>
