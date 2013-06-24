@@ -25,6 +25,7 @@ class MyMoblet : public HybridMoblet
 public:
 	MyMoblet()
 	{
+		maScreenSetSupportedOrientations(MA_SCREEN_ORIENTATION_DYNAMIC);
 		// Show the start page.
 		showPage("index.html");
 
