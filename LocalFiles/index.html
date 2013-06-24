@@ -7,14 +7,12 @@
 -->
 <html>
 <head>
-<meta name="viewport" content="user-scalable=no">
+<meta name="viewport" content="user-scalable=yes">
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <title>myGGC Info</title>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen"
 	title="no title" charset="utf-8">
 <script type="text/javascript" charset="utf-8" src="js/wormhole.js"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -26,9 +24,8 @@
 	});
 
 	function setScreenWidth() {
-		windowWidth = window.innerWidth;
-		windowHeight = window.innerHeight;
-		console.log("The screen width is: " + windowWidth);
+		windowWidth = screen.innerWidth;
+		windowHeight = screen.innerHeight;
 		document.getElementById("screen").setAttribute('width', windowWidth);
 		document.getElementById("iconWrapper").setAttribute('width',
 				windowWidth);
@@ -59,9 +56,11 @@
 
 	// Close the application when the back key is pressed.
 	document.addEventListener(
-		"backbutton",
-		function() { mosync.app.exit(); },
-		true);
+			"backbutton",
+			function() {
+				mosync.app.exit();
+			},
+			true);
 </script>
 </head>
 <body>
@@ -82,7 +81,7 @@
 			</div>
 		</div>
 		<!-- Top Content -->
-		
+
 		<!-- Icons -->
 		<div id="iconWrapper" style="margin: 0px auto">
 			<div id="icons" style="margin: 0px auto">
@@ -115,7 +114,8 @@
 					<div style="float: right">
 						<img class="icon"
 							onclick="document.location='whatsHappening.html'"
-							src="images/homeIcons/whatsHappeningIcon.png" alt="whatsHappeningIcon">
+							src="images/homeIcons/whatsHappeningIcon.png"
+							alt="whatsHappeningIcon">
 						<figcaption>
 							What's<br>Happening
 						</figcaption>
@@ -143,11 +143,9 @@
 			</div>
 		</div>
 		<!-- /Icons -->
-	</div>
-	<!-- Ticker -->
-	<div id="tickerDiv">
-		<img src="images/icons.png" width="100%" height="100%">
-	</div>
-
+		<!-- Ticker -->
+		<div id="tickerDiv">
+			<img src="images/icons.png" width="100%" height="100%">
+		</div>
 </body>
 </html>

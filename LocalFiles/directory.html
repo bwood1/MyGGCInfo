@@ -12,6 +12,25 @@
 	document.addEventListener("backbutton", function() {
 		window.history.back();
 	}, true);
+
+	/**
+	 * Takes the values entered into the search fields and sends a request to the server for results
+	 */
+	function search() {
+		var fName = document.getElementById('firstName').value;
+		var lName = document.getElementById('lastName').value;
+
+		if (fName.value != "" && lName.value != "") {
+			alert('Searching for ' + fName + ' ' + lName)
+		} else if (fName.value != "") {
+			alert('Searching for ' + fName);
+		}
+		else if (lName.value != "") {
+			alert('Searching for ' + lName)
+		}
+		else
+			alert('Please enter something into either text box.')
+	}
 </script>
 </head>
 <body>
@@ -39,43 +58,30 @@
 		<div id="searchContent">
 			<div id="inputFields" style="width: 90%">
 				<form action="">
-				<div style="display: inline-block; width:90%">
-					<div style="display: inline-block; width: 30%; text-align: right">
-						First name:</div>
-					<div style="display: inline-block; width: 40%">
-						<input type="text" name="firstName" style="width: 90%">
+					<div style="display: inline-block; width: 90%">
+						<div style="display: inline-block; width: 30%; text-align: right">
+							First name:</div>
+						<div style="display: inline-block; width: 40%">
+							<input type="text" id="firstName" name="firstName"
+								style="width: 90%">
+						</div>
 					</div>
-				</div>
-				<div style="display: inline-block; width:90%">
-					<div style="display: inline-block; width: 30%; text-align: right">
-						Last Name:</div>
-					<div style="display: inline-block; width: 40%">
-						<input type="text" name="lastName" style="width: 90%">
+					<div style="display: inline-block; width: 90%">
+						<div style="display: inline-block; width: 30%; text-align: right">
+							Last Name:</div>
+						<div style="display: inline-block; width: 40%">
+							<input type="text" id="lastName" name="lastName"
+								style="width: 90%">
+						</div>
 					</div>
-				</div>
 				</form>
-				<button type="button" onclick="alert('searching for person')">Search</button>
+				<button type="button" onclick="search();">Search</button>
 			</div>
 			<br>
-			<div class="spotlight_person odd">
-				<div class="image">
-					<a href="/about-ggc/directory/gautam-saha"
-						title="Gautam Saha detail"><img src="/sebin/x/q/gsaha.jpg"
-						alt="Gautam Saha" height="170" width="133" class="border" /></a>
-				</div>
-				<div class="content">
-					<div class="name">
-						<a href="/about-ggc/directory/gautam-saha"
-							title="Gautam Saha detail">Mr. Gautam Saha </a>
-					</div>
-					<div class="title">Instructional Designer</div>
-					<div class="office">L2127</div>
-					<div class="email">
-						<a href="mailto:gsaha@ggc.edu" title="Email Gautam Saha">gsaha@ggc.edu</a>
-					</div>
-					678.407.5561
-				</div>
-			</div>
+
+			<!-- results go here -->
+			<div id="searchResults"></div>
+			<!-- /results -->
 		</div>
 		<!-- /searchContent -->
 	</div>
