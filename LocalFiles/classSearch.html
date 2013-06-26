@@ -35,11 +35,13 @@
 			
 			//fires when the user selects a term
 			function showSubject() {
+				getSubjects();
 			    $("#subjectComboBox").show();
 			}
 			
 			//fires when the user selects a subject
 			function showCourses() {
+				getCourses();
 			    $("#semesterComboBox").hide();
 			    $("#subjectComboBox").hide();
 			    $("#coursesAvalible").show();
